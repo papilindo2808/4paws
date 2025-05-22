@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Stories = () => {
   return (
     <div className="min-h-screen pt-20 bg-gray-50">

@@ -4,7 +4,7 @@ import { useCommunity } from '../context/CommunityContext';
 
 const CreateCommunity = () => {
   const navigate = useNavigate();
-  const { createCommunity, loading, error } = useCommunity();
+  const { createCommunity, error } = useCommunity();
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
@@ -177,12 +177,9 @@ const CreateCommunity = () => {
               </button>
               <button
                 type="submit"
-                disabled={loading}
-                className={`px-6 py-2 bg-[#f59e0b] text-white rounded-full hover:bg-[#e89209] transition-colors duration-200 ${
-                  loading ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
+                className={`px-6 py-2 bg-[#f59e0b] text-white rounded-full hover:bg-[#e89209] transition-colors duration-200`}
               >
-                {loading ? 'Creando...' : 'Crear Comunidad'}
+                Crear Comunidad
               </button>
             </div>
           </form>
@@ -192,4 +189,4 @@ const CreateCommunity = () => {
   );
 };
 
-export default CreateCommunity; 
+export default CreateCommunity;

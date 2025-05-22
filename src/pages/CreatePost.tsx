@@ -5,7 +5,7 @@ import { usePost } from '../context/PostContext';
 const CreatePost = () => {
   const navigate = useNavigate();
   const { communityId } = useParams();
-  const { createPost, loading, error } = usePost();
+  const { createPost, error } = usePost();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState<File | null>(null);
@@ -149,12 +149,9 @@ const CreatePost = () => {
               </button>
               <button
                 type="submit"
-                disabled={loading}
-                className={`px-6 py-2 bg-[#f59e0b] text-white rounded-full hover:bg-[#e89209] transition-colors duration-200 ${
-                  loading ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
+                className="px-6 py-2 bg-[#f59e0b] text-white rounded-full hover:bg-[#e89209] transition-colors duration-200"
               >
-                {loading ? 'Publicando...' : 'Publicar'}
+                Publicar
               </button>
             </div>
           </form>
@@ -164,4 +161,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost; 
+export default CreatePost;

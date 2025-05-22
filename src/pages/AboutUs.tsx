@@ -1,4 +1,4 @@
-import { Heart, PawPrint, Users, Shield } from 'lucide-react';
+import { Heart, PawPrint, Shield } from 'lucide-react';
 import BackgroundDecorator from '../components/BackgroundDecorator';
 
 const AboutUs = () => {

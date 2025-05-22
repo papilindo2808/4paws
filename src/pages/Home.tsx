@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search, MapPin } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../components/ui/tabs';
 import { Card, CardContent, CardFooter } from '../components/ui/card';
-import { useAuth } from '../context/AuthContext';
 import { useAnimal } from '../context/AnimalContext';
 import { Animal } from '../types/Animal';
 import Footer from '../components/Footer';
 import FilterDialog, { FilterOptions } from '../components/filter-dialog';
+import { useState } from 'react';
 
 const AnimalCard = ({ animal }: { animal: Animal }) => {
   const navigate = useNavigate();
@@ -53,7 +52,6 @@ const AnimalCard = ({ animal }: { animal: Animal }) => {
 };
 
 const Home = () => {
-  const { user } = useAuth();
   const { animals = [], loading, error } = useAnimal();
   const [searchTerm, setSearchTerm] = useState('');
   const [activeTab, setActiveTab] = useState('all');
@@ -286,3 +284,4 @@ const Home = () => {
 };
 
 export default Home;
+

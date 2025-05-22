@@ -16,7 +16,7 @@ interface ImageTabProps {
   onPrev: () => void
 }
 
-export function ImageTab({ form, imagePreview, onImageUpload, onRemoveImage, onPrev }: ImageTabProps) {
+export function ImageTab({ imagePreview, onImageUpload, onRemoveImage, onPrev }: ImageTabProps) {
   return (
     <div className="space-y-4 pt-4">
       <div className="space-y-4">

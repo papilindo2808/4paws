@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCommunity } from '../context/CommunityContext';
 import { usePost } from '../context/PostContext';
@@ -24,7 +24,6 @@ const CommunityDetail = () => {
   const {
     posts,
     error: postsError,
-    getPostsByCommunity,
     getPostsByCommunityOrderByDate,
     getPostsByCommunityOrderByLikes,
     likePost,

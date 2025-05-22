@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, MapPin, Calendar, Heart, Share2 } from 'lucide-react';
 import { Button } from '../components/ui/button';
@@ -7,6 +6,7 @@ import { useAuth } from '../context/AuthContext';
 import { useAnimal } from '../context/AnimalContext';
 import { Animal } from '../types/Animal';
 import Footer from '../components/Footer';
+import { useEffect, useState } from 'react';
 
 const AnimalDetail = () => {
   const { id } = useParams();
@@ -49,14 +49,6 @@ const AnimalDetail = () => {
     return new Date().getFullYear() - new Date(birthDate).getFullYear();
   };
 
-  const animalAge = calculateAge(animal.birthDate);
-
-  const similarAnimalsFiltered = animals
-    .filter(a => 
-      a.id !== animal.id && 
-      (calculateAge(a.birthDate) === animalAge || a.breed === animal.breed)
-    )
-    .slice(0, 4);
 
   return (
     <div className="min-h-screen bg-[#fcfaf7]">
@@ -259,4 +251,4 @@ const AnimalDetail = () => {
   );
 };
 
-export default AnimalDetail; 
+export default AnimalDetail;

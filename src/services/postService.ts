@@ -42,12 +42,20 @@ const postService = {
     createPost: async (post: Partial<Post> | FormData): Promise<Post> => {
         // Si es FormData (con imagen), enviar como multipart, si no, enviar como JSON
         if (post instanceof FormData) {
-            const response = await axios.post('/api/posts', post);
+            const response = await axios.post('/api/posts', post, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
             return response.data;
         } else {
             // Elimina cualquier campo author, el backend lo asigna
             const { author, ...postData } = post;
-            const response = await axios.post('/api/posts', postData);
+            const response = await axios.post('/api/posts', postData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
             return response.data;
         }
     },

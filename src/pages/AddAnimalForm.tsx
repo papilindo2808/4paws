@@ -1,54 +1,8 @@
-import { useState } from "react";
-import { fetchWithAuth } from '../utils/fetchUtils';
 import AnimalAdoptionForm from "../components/animal-adoption-form";
 import { PawPrint } from 'lucide-react';
 import BackgroundDecorator from '../components/BackgroundDecorator';
 
 const AnimalForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    species: "",
-    breed: "",
-    description: "",
-    birthDate: "",
-    gender: "",
-    location: "",
-    imagenUrl: "",
-    size: ""
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    try {
-      await fetchWithAuth('http://localhost:8081/api/animals', {
-        method: 'POST',
-        body: JSON.stringify({ ...formData, adopted: false }),
-      });
-      alert('Animal registrado con éxito');
-      setFormData({
-        name: '',
-        species: '',
-        breed: '',
-        description: '',
-        birthDate: '',
-        gender: '',
-        location: '',
-        imagenUrl: '',
-        size: ''
-      });
-    } catch (error: any) {
-      console.error('Error:', error.message || error);
-      alert(`Hubo un problema al registrar el animal: ${error.message || 'Error desconocido'}`);
-    }
-  };
 
   return (
     <div className="relative min-h-screen">

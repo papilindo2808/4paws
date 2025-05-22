@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/4paws/', // 👈 esto es lo más importante
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

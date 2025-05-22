@@ -59,16 +59,17 @@ export function CreateRescueGroupForm() {
   async function onSubmit(data: FormValues) {
     setIsSubmitting(true)
     try {
-      const result = await createRescueGroup(data)
+      // const result = await createRescueGroup(data)
+      await createRescueGroup(data)
       Toast({
         title: "Rescue group created",
-        description: "Your rescue group has been created successfully.",
+        // description: "Your rescue group has been created successfully.",
       })
       navigate("/rescue-groups") // Redirect to the rescue groups list
     } catch (error) {
-    Toast({
+      Toast({
         title: "Error",
-        description: "There was an error creating the rescue group.",
+        // description: "There was an error creating the rescue group.",
         variant: "destructive",
       })
     } finally {

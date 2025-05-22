@@ -46,9 +46,6 @@ const AnimalList = ({ animals, title, description, species }: AnimalListProps) =
       <section>
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredAnimals.map((animal) => {
-            const age = animal.birthDate
-              ? `${new Date().getFullYear() - new Date(animal.birthDate).getFullYear()} años`
-              : 'Desconocida';
             return (
               <li
                 key={animal.id}
@@ -91,4 +88,4 @@ const AnimalList = ({ animals, title, description, species }: AnimalListProps) =
   );
 };
 
-export default AnimalList; 
+export default AnimalList;

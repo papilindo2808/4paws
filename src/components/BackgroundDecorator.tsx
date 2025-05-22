@@ -1,5 +1,3 @@
-import React from 'react';
-
 const BackgroundDecorator = () => {
   return (
     <div className="fixed inset-0 z-0" style={{
@@ -10,4 +8,4 @@ const BackgroundDecorator = () => {
   );
 };
 
-export default BackgroundDecorator; 
+export default BackgroundDecorator;

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Crear una instancia de axios con configuración predeterminada
 const axiosClient = axios.create({
-  baseURL: 'http://localhost:8081', // URL base para las solicitudes al backend
+  baseURL: 'https://fourpaws-back.onrender.com', // URL base actualizada para las solicitudes al backend
   headers: {
     'Content-Type': 'application/json', // Tipo de contenido predeterminado para las solicitudes
   },
@@ -12,7 +12,7 @@ const axiosClient = axios.create({
 const processImageUrl = (url: string | null | undefined): string => {
   if (!url) return '/placeholder.svg';
   if (url.startsWith('http')) return url;
-  if (url.startsWith('/uploads/')) return `http://localhost:8081${url}`;
+  if (url.startsWith('/uploads/')) return `https://fourpaws-back.onrender.com${url}`;
   return url;
 };
 

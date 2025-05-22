@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { useAnimal } from '../context/AnimalContext';
-import { useAuth } from '../context/AuthContext';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card';
 import { MapPin, Phone, Calendar, Ruler, Users, X } from 'lucide-react';
@@ -10,7 +9,6 @@ import LocationContactModal from './location-contact-modal';
 const AnimalDetails = () => {
   const [showContactModal, setShowContactModal] = useState(false);
   const { id } = useParams();
-  const { user } = useAuth();
   const { animals } = useAnimal();
 
   const animal = animals.find(a => a.id === Number(id));
@@ -70,10 +68,10 @@ const AnimalDetails = () => {
                   <span>Ubicación: {animal.location}</span>
                 </div>
               )}
-              {animal.contactPhone && (
+              {animal.user?.contactPhone && (
                 <div className="flex items-center gap-2">
                   <Phone className="w-5 h-5 text-gray-500" />
-                  <span>Contacto: {animal.contactPhone}</span>
+                  <span>Contacto: {animal.user.contactPhone}</span>
                 </div>
               )}
             </div>
@@ -160,4 +158,4 @@ const AnimalDetails = () => {
   );
 };
 
-export default AnimalDetails; 
+export default AnimalDetails;

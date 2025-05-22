@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCommunity } from '../context/CommunityContext';
+import { useState, useEffect } from 'react';
 
 const Communities = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState<string>('todas');
-  const { communities, loading, error, getAllCommunities, getCommunitiesByCategory } = useCommunity();
+  const { communities, error, getCommunitiesByCategory, getAllCommunities, loading } = useCommunity();
 
   const categories = [
     'todas',
@@ -135,4 +135,4 @@ const Communities = () => {
   );
 };
 
-export default Communities; 
+export default Communities;

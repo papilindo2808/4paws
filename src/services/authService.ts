@@ -16,9 +16,7 @@ interface RegisterRequest {
   birthDate: string;
 }
 
-interface AuthError {
-  message: string;
-}
+
 
 export const authService = {
   async login(username: string, password: string): Promise<LoginResponse> {

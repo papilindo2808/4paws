@@ -6,10 +6,12 @@ interface CommunityContextType {
     communities: Community[];
     currentCommunity: Community | null;
     isLoading: boolean;
+    loading: boolean; // alias para loading
     error: string | null;
     refetchCommunities: () => void;
     getCommunityById: (id: number) => Promise<Community | undefined>;
     getCommunitiesByCategory: (category: string) => Promise<Community[] | undefined>;
+    getAllCommunities: () => Promise<void>;
     searchCommunities: (name: string) => Promise<Community[] | undefined>;
     createCommunity: (community: Partial<Community> | FormData) => Promise<Community | undefined>;
     updateCommunity: (id: number, community: Partial<Community>) => Promise<Community | undefined>;
@@ -70,6 +72,11 @@ export const CommunityProvider: React.FC<{ children: React.ReactNode }> = ({ chi
         }
     };
 
+    // Agrega función para obtener todas las comunidades
+    const getAllCommunities = async () => {
+        await refetch();
+    };
+
     // Métodos auxiliares para mutaciones
     const createCommunity = async (community: Partial<Community> | FormData) => {
         try {
@@ -112,10 +119,12 @@ export const CommunityProvider: React.FC<{ children: React.ReactNode }> = ({ chi
             communities,
             currentCommunity,
             isLoading,
+            loading: isLoading, // alias para loading
             error: error ? error.message : null,
             refetchCommunities: refetch,
             getCommunityById,
             getCommunitiesByCategory,
+            getAllCommunities, // expone la función
             searchCommunities,
             createCommunity,
             updateCommunity,
