@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+@import "tailwindcss";
+
+body {
+    background-color: #FFFDED;
+    font-family: 'Bubblegum Sans', cursive;
+}
+
+.logo{
+    filter: invert(1);
+    height: 100px;
+    width: 150px;
+}
+
+/* Aplicar la fuente a todos los elementos de texto */
+h1, h2, h3, h4, h5, h6, p, span, button, input, textarea, select {
+    font-family: 'Bubblegum Sans', cursive;
+}
